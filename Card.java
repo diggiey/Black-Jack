@@ -13,10 +13,17 @@ public class Card {
 	private String cardSuit;
 	private String faceCard;
 	private String name;
+	private int value;
 
 	public Card(String cardSuit, int number) {
 		this.cardSuit = cardSuit;
 		this.number = number;
+	}
+
+	public Card(String cardSuit, int number, int value) {
+		this.cardSuit = cardSuit;
+		this.number = number;
+		this.value = value;
 	}
 
 	public String getSuit() {
@@ -25,6 +32,10 @@ public class Card {
 
 	public int getNumber() {
 		return this.number;
+	}
+
+	public int getValue() {
+		return this.value;
 	}
 
 	public void draw(Graphics g, String name, Rectangle r) {

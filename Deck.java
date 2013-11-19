@@ -16,6 +16,7 @@ public class Deck {
 	public Deck() {
 
 		int index = 0;
+		int value = 0;
 
 		this.cards = new Card[52];
 		String suitType = "Hearts";
@@ -32,7 +33,15 @@ public class Deck {
 				suitType = "Clubs";
 			}
 			for (int cardNumber=1; cardNumber<=13; cardNumber++) {
-				Card cardType = new Card(suitType, cardNumber);
+				if (cardNumber > 10) {
+					value = 10;
+				} else if (cardNumber > 1 && cardNumber < 11) {
+					value = cardNumber;
+				} else if (cardNumber == 1) {
+					value = 11;
+				}
+
+				Card cardType = new Card(suitType, cardNumber, value);
 				this.cards[index] = cardType;	
 				index++;
 			}
@@ -69,6 +78,31 @@ public class Deck {
 				System.out.println("Ace of " + this.cards[i].getSuit());
 			}
 		}
+	}
+
+	public void deal(Graphics g) {
+		int offSetPlayer = 25;
+		int offSetDealer = 25;
+
+		for (int i=0; i<4; i++) {
+			if (i<2) {
+				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 25, 200, 300));
+				offSetPlayer += 250;	
+			} else {
+				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetDealer, 500, 200, 300));
+				offSetDealer += 250;
+			}
+		}
+	}
+
+	public void valueOfHand(Graphics g) {
+		int valueTest = 0;
+		for (int test=0; test<2; test++) {
+			valueTest += this.cards[test].getValue();
+		}
+
+		// g.setFont(new Font("Serif", Font.PLAIN, 50));
+		g.drawString("Value of hand:" + valueTest, 25, 400);
 	}
 
 	public void draw(Graphics g, int y) {
