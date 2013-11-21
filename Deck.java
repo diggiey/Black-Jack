@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 public class Deck {
 
 	private Card[] cards;
+	private int cardsDealt;
 
 	public Deck() {
 
@@ -86,7 +87,7 @@ public class Deck {
 
 		for (int i=0; i<4; i++) {
 			if (i<2) {
-				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 25, 200, 300));
+				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
 				offSetPlayer += 250;	
 			} else {
 				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetDealer, 500, 200, 300));
@@ -111,6 +112,16 @@ public class Deck {
 			this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSet, y, 200, 300));
 			offSet += 25;
 		}
+	}
+
+	public int getCardsDealt() {
+		return this.cardsDealt;
+	}
+
+	public Card dealCard() {
+		cardsDealt = 5;
+		cardsDealt++;
+		return this.cards[this.cardsDealt - 1];
 	}
 
 }
