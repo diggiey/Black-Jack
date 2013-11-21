@@ -15,10 +15,6 @@ public class Player {
 		this.cards = new Card[11];
 	}
 
-	public void Hit() {
-		
-	}
-
 	public Card dealCard(Deck deck, boolean faceDown) {
 		Card c = deck.dealCard();
 

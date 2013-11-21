@@ -114,14 +114,24 @@ public class Deck {
 		}
 	}
 
+	public void hitCard(int cardsDealt) {
+		int offSetPlayer = 525;
+
+		if (cardsDealt == 2) {
+			// this.cards[cardsDealt+3].draw(g, this.cards[cardsDealt+3].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+		} else {
+			// this.cards[cardsDealt+3].draw(g, this.cards[cardsDealt+3].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+		}
+	}
+
 	public int getCardsDealt() {
 		return this.cardsDealt;
 	}
 
 	public Card dealCard() {
-		cardsDealt = 5;
+		cardsDealt = 2;
 		cardsDealt++;
-		return this.cards[this.cardsDealt - 1];
+		return this.cards[this.cardsDealt];
 	}
 
 }

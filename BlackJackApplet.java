@@ -50,11 +50,11 @@ public class BlackJackApplet extends Applet implements ActionListener {
 	 }
 
 	 public void actionPerformed(ActionEvent ae) {
-
-	 	int offSetPlayer = 525;
-
 	 	if ("Hit".equals(ae.getActionCommand())) {
 	 		player.dealCard(deck, false);
+	 		// int cardsDealt = deck.getCardsDealt();
+	 		// deck.hitCard(cardsDealt);
+
 	 	} else if ("Stay".equals(ae.getActionCommand())) {
 	 		
 	 	}
