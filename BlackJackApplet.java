@@ -13,8 +13,11 @@ public class BlackJackApplet extends Applet implements ActionListener {
 	private JLabel label;
 	private JButton hit, stay, reset;
 	private Card[] cards;
+	private int cardsDealt;
 
 	 public void init() {
+
+	 	cardsDealt = 4;
 
 	 	String title = "Hit";
 	 	hit = new JButton(title);
@@ -38,6 +41,7 @@ public class BlackJackApplet extends Applet implements ActionListener {
 	 public void paint(Graphics g) {
 	 	super.paint(g);
 	 	deck.deal(g);
+	 	deck.paintHand(g);
 	 	deck.valueOfHand(g);
 
 
@@ -52,6 +56,10 @@ public class BlackJackApplet extends Applet implements ActionListener {
 	 public void actionPerformed(ActionEvent ae) {
 	 	if ("Hit".equals(ae.getActionCommand())) {
 	 		player.dealCard(deck, false);
+
+	 		deck.hitCard(cardsDealt);
+
+
 	 		// int cardsDealt = deck.getCardsDealt();
 	 		// deck.hitCard(cardsDealt);
 

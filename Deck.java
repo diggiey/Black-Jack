@@ -51,8 +51,6 @@ public class Deck {
 
 	public static void main(String[] args) {
 		Deck d = new Deck();
-		// d.shuffle();
-		// d.printDeck();
 	}
 
 	public void shuffle() {
@@ -87,7 +85,8 @@ public class Deck {
 
 		for (int i=0; i<4; i++) {
 			if (i<2) {
-				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+				dealCard();
+				// this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
 				offSetPlayer += 250;	
 			} else {
 				this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetDealer, 500, 200, 300));
@@ -102,7 +101,6 @@ public class Deck {
 			valueTest += this.cards[test].getValue();
 		}
 
-		// g.setFont(new Font("Serif", Font.PLAIN, 50));
 		g.drawString("Value of hand:" + valueTest, 25, 400);
 	}
 
@@ -117,10 +115,10 @@ public class Deck {
 	public void hitCard(int cardsDealt) {
 		int offSetPlayer = 525;
 
-		if (cardsDealt == 2) {
-			// this.cards[cardsDealt+3].draw(g, this.cards[cardsDealt+3].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+		if (cardsDealt == 5) {
+			dealCard();
 		} else {
-			// this.cards[cardsDealt+3].draw(g, this.cards[cardsDealt+3].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+			
 		}
 	}
 
@@ -129,9 +127,19 @@ public class Deck {
 	}
 
 	public Card dealCard() {
-		cardsDealt = 2;
 		cardsDealt++;
 		return this.cards[this.cardsDealt];
+	}
+
+	public void paintHand(Graphics g) {
+
+		int offSetPlayer = 25;
+
+		for (int i=0; i<2; i++) {
+			this.cards[i].draw(g, this.cards[i].toString(), new Rectangle(offSetPlayer, 50, 200, 300));
+			offSetPlayer += 250;
+		}
+		System.out.println(cardsDealt);
 	}
 
 }
