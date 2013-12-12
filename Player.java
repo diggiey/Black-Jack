@@ -15,8 +15,8 @@ public class Player {
 		this.cards = new Card[11];
 	}
 
-	public Card dealCard(Deck deck, boolean faceDown) {
-		Card c = deck.dealCard();
+	public Card dealCard(Deck deck, boolean faceDown, int cardsInHand) {
+		Card c = deck.dealCard(cardsInHand);
 
 		return c;
 	}
